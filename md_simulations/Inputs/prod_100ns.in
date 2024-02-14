@@ -1,0 +1,9 @@
+100 ns NPT MD production, save every 10ps, 
+&cntrl
+ imin=0, irest=1, ntx=5, iwrap=1,
+ nstlim=50000000, dt=0.002,
+ ntpr=5000, ntwx=5000, ioutfm=1, ntwr=50000,
+ ntc=2, ntf=2, cut=8.0,
+ ntb=2, ntp=1, pres0=1.0, taup=1.0,
+ ntt=3, tempi=300.0, temp0=300.0, gamma_ln=5.0, ig=-1,
+/
