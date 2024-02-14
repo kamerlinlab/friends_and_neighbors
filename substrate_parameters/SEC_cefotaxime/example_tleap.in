@@ -1,0 +1,25 @@
+# read in standard protein parameters. 
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p 
+source leaprc.gaff2
+
+# load the SEC params. 
+loadoff SEC.off
+loadamberparams SEC_All_params.frcmod
+
+
+# load the test pdb
+TEM1_1M40_Cefo = loadpdb TEM1_1M40_Cefo.pdb
+
+# solvate 
+solvateBox TEM1_1M40_Cefo TIP3PBOX 12.0
+addionsrand TEM1_1M40_Cefo Cl- 0 # Make neutral
+addionsrand TEM1_1M40_Cefo Na+ 0 # Make neutral
+
+
+saveamberparm TEM1_1M40_Cefo TEM1_1M40_Cefo.prmtop TEM1_1M40_Cefo.inpcrd
+savepdb TEM1_1M40_Cefo TEM1_1M40_Cefo_postleap.pdb
+quit 
+
+
+

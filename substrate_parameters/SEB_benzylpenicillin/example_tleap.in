@@ -1,0 +1,29 @@
+# read in standard protein parameters. 
+source leaprc.protein.ff14SB
+source leaprc.water.tip3p 
+source leaprc.gaff2
+
+addAtomTypes { 
+	{ "c5" "C" "sp3" } 
+}
+
+# load the SEB params. 
+loadoff SEB.off
+loadamberparams SEB_Gaff2.frcmod
+loadamberparams SEB_Gaff2_Parm10_Connect.frcmod
+
+# load the test pdb
+TEM1_1M40_Benzyl_Pen = loadpdb TEM1_1M40_Benzyl_Pen.pdb
+
+# solvate 
+solvateBox TEM1_1M40_Benzyl_Pen TIP3PBOX 12.0
+addionsrand TEM1_1M40_Benzyl_Pen Cl- 0 # Make neutral
+addionsrand TEM1_1M40_Benzyl_Pen Na+ 0 # Make neutral
+
+
+saveamberparm TEM1_1M40_Benzyl_Pen TEM1_1M40_Benzyl_Pen.prmtop TEM1_1M40_Benzyl_Pen.inpcrd
+savepdb TEM1_1M40_Benzyl_Pen TEM1_1M40_Benzyl_Pen_postleap.pdb
+quit 
+
+
+
