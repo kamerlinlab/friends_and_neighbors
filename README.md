@@ -1,32 +1,43 @@
-Tools follow up work with KIF.
+### Friends and Relatives - Manuscript Repository 
 
-The MD simulations and the KIF contacts calculation were run on a cluster with the contacts data added here for KIF analysis. The distances used to build the target variable for KIF were also calculated on the cluster but they are combined here (by summing the distances) to make the target variable. 
+This is a repository associated with the manuscript titled: **"Friends and relatives: insight into conformational regulation from orthologues and evolutionary lineages using KIF and KIN"**
 
+Authors: Dariia Yehorova, Rory Crean, Peter M Kasson, Shina Caroline Lynn Kamerlin
 
-### Folders:
+**Once a preprint is available, the repository will be updated to include a link to it.**
 
-- raw_data: KIF calculated contacts for each trajectory. An MSA for each system to each other is also provided here ("align1d.ali"). 
-
-- target_variable: The ".dat" files are the raw distances calculated for each trajectory. The ".txt" files is the target variable. This target variable is created in the notebook called: "make_target_variable.ipynb". 
-
-- pdb_files: PDB files for each protein which is used to measure distances to the active site in the notebook called: 
-
-- outputs: outputs from the kif analysis. 
+This repository provides the data needed to reproduce the calculations performed in the accompanying paper.
 
 
-### Notebooks:
+### Folders: 
 
-In order in which they are run: 
+The repository is broken up into several folders relating to the different aspects of the project. 
 
-- "1_make_target_variable.ipynb": Creates the target variable for KIF regression analysis and makes violin plots to show the distribution of the target variable. 
+**substrate_parameters:** This folder contains the parameters for the substrates (simulated in their tetrahedral intermediate forms) used in the MD simulations. The substrates used are benzylpenicillin and cefotaxime and are covalently linked to Ser70 (TEM1 numbering). An example tleap file is included to show how these parameters can be used in an MD simulation. Please see the manuscript for a description of the parameterisation process. 
 
-- "2_run_kif_regress.ipynb": Run the KIF regression analysis. 
+**md_simulations:** Input files used to run MD simulations for the different systems simulated. Topologies and coordinate files for each starting structure are also provided. 
 
-- "3_analyse_kif_regress.ipynb": Analyse the KIF regression results. 
-
-- "dist_to_active_site.ipynb": Calculates the distance to the active site for each residue in the different proteins. (Has no order in which it needs to be run). 
+**kif_analysis:** The analysis performed using [key interactions finder (KIF)](https://github.com/kamerlinlab/KIF) for the manuscript. The contacts and target variable values (a combintation of catalytic distances) were calculated on the computing cluster where the MD simulations were run. They were however merged inside this folder for the KIF analysis. Please see the Jupyter Notebooks for a detailed description of the analyses performed, alongside the manuscript. 
 
 
-### Install/Enviroment
 
-A "requirements.txt" file is included.
+### Reproduce the Python Environment
+
+To reproduce the python enviroment used in this work you can create a new virtual environment using a version of Python 3.11. With conda, could do this by typing:
+
+``` 
+conda create -n environment_name python=3.11
+conda activate environment_name
+``` 
+
+Now, either clone/download this repository or download just the "requirements.txt" file provided with this repository. 
+
+You can then install the required modules using:
+
+``` 
+pip install -r requirements.txt
+``` 
+
+After this, you'll have the required packages installed on your virtual enviroment to run the analysis with KIF or KIN. 
+
+

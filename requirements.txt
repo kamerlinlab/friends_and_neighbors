@@ -1,5 +1,9 @@
-KIF==0.3.3
+KIF==0.3.4
+key-interactions-network==0.1.0
 pandas==2.1.1
 numpy==1.26.0
 plotly==5.17.0
+jupyter==1.0.0
+ipython==8.16.1
+
 
