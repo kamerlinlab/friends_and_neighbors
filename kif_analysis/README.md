@@ -2,6 +2,10 @@
 
 As described in the main README file, this subfolder contains the analysis performed for the manuscript involving the tool [key interactions finder (KIF)](https://github.com/kamerlinlab/KIF). 
 
+
+**Note:** Throughout the files and notebooks, benzylpenicillin is refered to as "benzyl" and cefotaxime as "cefo". 
+
+
 ### Folders 
 
 The folders inside this section contain as follows: 
